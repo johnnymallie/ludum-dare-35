@@ -33,7 +33,8 @@
             
             this.layer = this.map.createLayer('Collision');
 
-            this.layer.resizeWorld();      
+            this.layer.resizeWorld();     
+             
         }
 
         render() {
