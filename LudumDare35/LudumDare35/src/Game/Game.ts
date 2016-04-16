@@ -7,7 +7,7 @@
             playerX: 140,
             playerY: 450,
             screenWidth: 320,
-            screenHeight: 500,
+            screenHeight: 500, 
             forms: {
                 n0: 'triangle',
                 n1: 'circle',
