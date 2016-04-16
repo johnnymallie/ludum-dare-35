@@ -15,6 +15,7 @@
             this.load.image('tiles', 'assets/images/levels/level1/tileset.png');
             this.load.image('playerTriangle', 'assets/images/elements/playerTriangle.png');
             this.load.image('playerCircle', 'assets/images/elements/playerCircle.png');
+            this.load.image('playerSquare', 'assets/images/elements/playerSquare.png');
         }
 
         create() { 
@@ -28,19 +29,18 @@
             this.music.play();
             */
            
-           
             this.map = this.add.tilemap('map');
-            console.log(this.map.height);
+            //console.log(this.map.height);
             this.map.addTilesetImage('tileset','tiles'); 
             
             this.layer = this.map.createLayer('render');
-            console.log(this.map);
+            //console.log(this.map);
             
             this.layer.resizeWorld();
             //this.layer.fixedToCamera = false;
 
             this.game.camera.y = 2560;
-            console.log(this.layer);    
+            //console.log(this.layer);    
             //this.map.setCollisionBetween(1, 100, true, 'Collision');
 
             this.player = new Player(this.game, Game.global.playerX, Game.global.playerY);
@@ -54,7 +54,7 @@
         update() {
             this.game.camera.y -= 4;
             this.player.y -= 4;
-            console.log(this.game.camera.y);
+            //console.log(this.game.camera.y);
         }
 
     }

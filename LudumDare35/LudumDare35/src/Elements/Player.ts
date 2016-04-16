@@ -2,15 +2,20 @@
     export class Player extends Phaser.Sprite {
 
         protected velocity;
-        protected form;
-        protected spacebarPress;
+        protected forms;
+        protected actualForm;
+
         constructor(game: Phaser.Game, x: number, y: number) {
+            super(game, x, y, 'playerTriangle', 0);
+            
             // Vitesse du personange
             this.velocity = 300;
 
             // LA 1ère forme du player est le triangle
-            this.form = Game.global.forms.n0; 
-            super(game, x, y, 'playerTriangle', 0);
+            this.forms = ['playerTriangle','playerCircle','playerSquare'];
+                
+            this.actualForm = 0;
+            
             //game.add.image(40, 100, 'player');
             this.anchor.setTo(0.5, 0.5);
             console.log(this);
@@ -27,7 +32,6 @@
         update() {
             this.body.velocity.x = 0;
             this.body.velocity.y = 0;
-
             if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
                 this.body.velocity.x = -this.velocity;
                 /*
@@ -38,7 +42,7 @@
             }
 
             if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
-                this.body.velocity.x = this.velocity;
+                this.body.velocity.x = this.velocity; 
                 /*
                 if (this.scale.x == 1) {
                     this.scale.x = -1;
@@ -52,32 +56,41 @@
             if (this.game.input.keyboard.isDown(Phaser.Keyboard.DOWN)) {
                 this.body.velocity.y = this.velocity;
             }
-
-            /*
-            if (this.game.input.keyboard.upDuration(Phaser.Keyboard.SPACEBAR, 10000)) {
-                console.log('test');
-                 
-            } 
-            */
-
+             
             var spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+            //Self pas génial, trouver autre chose
+            var self = this;
             spacebar.onDown.add(function () {
                 if (!this.spacebarPress) {
-                    console.log('DOWN');
+                    console.log(this);
+                    self.changeForm();
                     this.spacebarPress = true;
                 }
             });
             spacebar.onUp.add(function () {
                 if (this.spacebarPress) {
-                    console.log('UP');
                     this.spacebarPress = false;
                 }
+              
             });
         }
-
+        
         // Fonctions propres au player
-        changeForm() {
-            this.loadTexture('playerCircle', 0);
+        protected changeForm() {
+            this.actualForm++;
+            if (this.actualForm > this.forms.length - 1) {
+                this.actualForm = 0;
+            }
+            this.loadTexture(this.forms[this.actualForm], 0);
+        }
+
+        // Fonctions public
+        public getForm() {
+            return this.forms[this.actualForm];
+        }
+
+        public killPlayer() {
+            this.kill();
         }
     }
 }
