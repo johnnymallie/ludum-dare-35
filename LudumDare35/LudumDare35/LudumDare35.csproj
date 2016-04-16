@@ -24,15 +24,23 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="index.html" />
-    <Content Include="phaser.js" />
-    <Content Include="phaser.min.js" />
+    <Content Include="vendor\phaser.js" />
+    <Content Include="vendor\phaser.min.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
-    <TypeScriptCompile Include="p2.d.ts" />
-    <TypeScriptCompile Include="phaser.d.ts" />
-    <TypeScriptCompile Include="pixi.d.ts" />
+    <TypeScriptCompile Include="src\Boot\Boot.ts" />
+    <TypeScriptCompile Include="src\Game\Game.ts" />
+    <TypeScriptCompile Include="src\Level\Level1.ts" />
+    <TypeScriptCompile Include="src\Loader\Preloader.ts" />
+    <TypeScriptCompile Include="src\Menus\MainMenu.ts" />
+    <TypeScriptCompile Include="vendor\p2.d.ts" />
+    <TypeScriptCompile Include="vendor\phaser.d.ts" />
+    <TypeScriptCompile Include="vendor\pixi.d.ts" />
+    <TypeScriptCompile Include="src\Elements\Enemy.ts" />
+    <TypeScriptCompile Include="src\Elements\Player.ts" />
+    <TypeScriptCompile Include="src\Elements\Shoot.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">
@@ -41,6 +49,13 @@
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\images\elements\" />
+    <Folder Include="assets\images\levels\level1\" />
+    <Folder Include="assets\images\menus\" />
+    <Folder Include="assets\sounds\effects\" />
+    <Folder Include="assets\sounds\musics\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
