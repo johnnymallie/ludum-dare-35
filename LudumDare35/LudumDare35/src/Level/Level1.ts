@@ -8,8 +8,7 @@
         platform;
         map: Phaser.Tilemap;
         green: Phaser.TilemapLayer;
-        yellow: Phaser.TilemapLayer;
-        layerWall = Phaser.TilemapLayer;
+      
         enemies;
         
         preload() {
@@ -20,6 +19,7 @@
             this.load.image('playerCircle', 'assets/images/elements/playerCircle.png');
             this.load.image('playerSquare', 'assets/images/elements/playerSquare.png');
             this.load.image('enemy', 'assets/images/elements/enemy.png');
+            this.game.time.advancedTiming = true;
         }
 
         create() { 
@@ -40,10 +40,9 @@
             this.green = this.map.createLayer('green');
             this.green.resizeWorld();
 
-            this.yellow = this.map.createLayer('yellow');
-            this.yellow.resizeWorld();
+            
 
-            this.map.setCollisionBetween(1,2);
+            this.map.setCollisionBetween(1,10);
          
            
             //this.layer.fixedToCamera = false;
@@ -71,20 +70,24 @@
         render() {
             this.game.debug.text('Height : ' + this.map.height, 32, 32, 'rgb(255,255,255)');
             this.game.debug.body(this.player);
+            this.game.debug.text(String(this.game.time.fps), 2, 14, "#00ff00"); 
        
         }
 
         update() {
             var colorPlayer = String(this.player.getColor());
-            console.log(colorPlayer);
 
-            if (colorPlayer == 'green') {
-                this.game.physics.arcade.collide(this.player, this.green, this.test, null, this);
-            }
+            this.game.physics.arcade.collide(this.player, this.yellow, this.test, null, this);
+            this.game.physics.arcade.collide(this.player, this.green, this.test, null, this);
+            //console.log(colorPlayer);
 
-            if (colorPlayer == 'yellow') {
-                this.game.physics.arcade.collide(this.player, this.yellow, this.test, null, this);
-            }
+           // if (colorPlayer == 'green') {
+           //    
+           // }
+
+           // if (colorPlayer == 'yellow') {
+                
+           // }
 
           
             
