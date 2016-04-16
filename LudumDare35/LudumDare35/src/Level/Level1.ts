@@ -27,20 +27,34 @@
             /*this.music = this.add.audio('music', 1, false);
             this.music.play();
             */
-            this.player = new Player(this.game, Game.global.playerX, Game.global.playerY);
+           
            
             this.map = this.add.tilemap('map');
             console.log(this.map.height);
             this.map.addTilesetImage('tileset','tiles'); 
             
             this.layer = this.map.createLayer('render');
+            console.log(this.map);
+            
+            this.layer.resizeWorld();
+            //this.layer.fixedToCamera = false;
 
-            this.layer.resizeWorld();     
-             
+            this.game.camera.y = 2560;
+            console.log(this.layer);    
+            //this.map.setCollisionBetween(1, 100, true, 'Collision');
+
+            this.player = new Player(this.game, Game.global.playerX, Game.global.playerY);
+            
         }
 
         render() {
             this.game.debug.text('Height : ' + this.map.height, 32, 32, 'rgb(255,255,255)');
+        }
+
+        update() {
+            this.game.camera.y -= 4;
+            this.player.y -= 4;
+            console.log(this.game.camera.y);
         }
 
     }
