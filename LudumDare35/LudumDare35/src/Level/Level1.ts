@@ -35,18 +35,19 @@
             this.map.addTilesetImage('tileset','tiles'); 
             
             this.layer = this.map.createLayer('render');
+            this.map.setCollision(2);
 
-            this.layer = this.map.createLayer('wall');
-            console.log(this.map);
-            
             this.layer.resizeWorld();
             //this.layer.fixedToCamera = false;
 
-            this.game.camera.y = 2560;
+            //this.game.camera.y = 2560;
 
-            this.map.setCollisionBetween(1, 10000, true,'wall');
+           
 
             this.player = new Player(this.game, Game.global.playerX, Game.global.playerY);
+            
+            this.player.body.gravity.y = -5000;
+            this.game.camera.follow(this.player);
             
         }
 
@@ -55,14 +56,15 @@
         }
 
         update() {
-            this.game.camera.y -= 1;
-            this.player.y -= 1;
-            //this.game.physics.arcade.collide(this.player, this.layer,this.test, null, this);
-            this.game.physics.arcade.overlap(this.player, this.layer, this.test,null,this)
+           
+          
+            this.game.physics.arcade.collide(this.player, this.layer,this.test, null, this);
+            //this.game.physics.arcade.overlap(this.player, this.map, this.test,null,this)
         }
 
         test(player, layer) {
-            console.log('collision');
+            console.log(layer);
+            this.shutdown();
         }
 
     }

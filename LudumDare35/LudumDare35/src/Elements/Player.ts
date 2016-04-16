@@ -26,7 +26,7 @@
             game.physics.enable(this, Phaser.Physics.ARCADE);
             //this.scale.setTo(this.width, this.height);
             game.add.existing(this);
-            //this.body.gravity.y = 200;
+           
         }
 
         update() {
