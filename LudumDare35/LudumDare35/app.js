@@ -51,54 +51,67 @@ var SimpleGame;
     var Player = (function (_super) {
         __extends(Player, _super);
         function Player(game, x, y) {
+            // Vitesse du personange
+            this.velocity = 300;
             _super.call(this, game, x, y, 'player', 0);
             //game.add.image(40, 100, 'player');
             this.anchor.setTo(0.5, 0.5);
-            this.width = 10;
-            this.height = 10;
+            this.width = 50;
+            this.height = 43;
             //this.animations.add('walk', [1, 2], 10, true);
             //this.animations.add('walk', [0, 1, 2, 3, 4], 10, true);
-            //game.physics.enable(this, Phaser.Physics.ARCADE);
-            this.scale.setTo(this.width, this.height);
+            game.physics.enable(this, Phaser.Physics.ARCADE);
+            //this.scale.setTo(this.width, this.height);
             game.add.existing(this);
             //this.body.gravity.y = 200;
         }
         Player.prototype.create = function () {
         };
         Player.prototype.update = function () {
-            /*
             this.body.velocity.x = 0;
-
             if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
-                
                 this.body.velocity.x = -200;
-                this.animations.play('walk');
-
-                if (this.scale.x == 1) {
-                    this.scale.x = -1;
-                }
             }
-            else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
-
-                this.body.velocity.x = 200;
-                this.animations.play('walk');
-
-                if (this.scale.x == -1) {
-                    this.scale.x = 1;
-                }
+            if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
+                this.body.velocity.x = this.velocity;
+            }
+            if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP)) {
+                this.body.velocity.y = -this.velocity;
             }
             else {
-                this.animations.frame = 0;
             }
-
+            if (this.game.input.keyboard.isDown(Phaser.Keyboard.DOWN)) {
+                this.body.velocity.y = this.velocity;
+            }
+            else {
+            }
+            /*
             if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-                console.log('hello');
-                this.body.velocity.y = -300;
+                this.body.velocity.y = -this.velocity;
                 if (this.scale.y == -1) {
                     this.scale.y = 1;
                 }
             }
             */
+            /*
+
+            if (this.cursor.left.isDown){
+            this.player.body.velocity.x = -200;
+            this.player.animations.play('left');
+        }else if (this.cursor.right.isDown){
+            this.player.body.velocity.x = 200;
+            this.player.animations.play('right');
+        } else {
+            this.player.body.velocity.x = 0;
+            this.player.animations.stop();
+            this.player.frame = 0;
+        }
+        
+        if (this.cursor.up.isDown && this.player.body.touching.down){
+            this.jumpSound.play();
+            this.player.body.velocity.y = -400;
+        }
+        */
         };
         return Player;
     })(Phaser.Sprite);
@@ -137,7 +150,7 @@ var SimpleGame;
         };
         Game.global = {
             playerX: 350,
-            playerY: 250,
+            playerY: 450,
             screenWidth: 700,
             screenHeight: 500
         };

@@ -5,7 +5,7 @@
         
         static global = {
             playerX: 350,
-            playerY: 250,
+            playerY: 450,
             screenWidth: 700,
             screenHeight: 500
         };
