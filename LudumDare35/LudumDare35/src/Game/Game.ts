@@ -7,7 +7,12 @@
             playerX: 350,
             playerY: 450,
             screenWidth: 700,
-            screenHeight: 500
+            screenHeight: 500,
+            forms: {
+                n0: 'triangle',
+                n1: 'circle',
+                n2: 'square'
+            }
         };
 
         constructor() {
