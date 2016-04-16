@@ -11,7 +11,7 @@
         
         preload() {
             console.log('tilemap');
-            this.load.tilemap('level', 'assets/images/levels/level1/map1.json', null, Phaser.Tilemap.TILED_JSON);
+            this.load.tilemap('map', 'assets/images/levels/level1/map1.json', null, Phaser.Tilemap.TILED_JSON);
             this.load.image('tiles', 'assets/images/levels/level1/tileset.png');
             this.load.image('playerTriangle', 'assets/images/elements/playerTriangle.png');
             this.load.image('playerCircle', 'assets/images/elements/playerCircle.png');
