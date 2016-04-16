@@ -7,12 +7,10 @@
         player: SimpleGame.Player;
         platform;
         map: Phaser.Tilemap;
-        layer: Phaser.TilemapLayer;
         
         preload() {
             console.log('tilemap');
             this.load.tilemap('level', 'assets/images/levels/level1/map1.json', null, Phaser.Tilemap.TILED_JSON);
-            this.load.image('tileset','assets/images/levels/level1/tileset.png');
         }
 
         create() {
@@ -20,7 +18,7 @@
             //this.background = this.add.sprite(0, 0, 'level1');
 
             //Physics doesn't work
-            //this.game.physics.startSystem(Phaser.Physics.ARCADE);
+            //Game.physics.enable(this, Phaser.Physics.ARCADE);
 
             /*this.music = this.add.audio('music', 1, false);
             this.music.play();
@@ -28,16 +26,8 @@
             this.player = new Player(this.game, Game.global.playerWidth, Game.global.playerHeight);*/
            
             this.map = this.add.tilemap('level');
-            console.log(this.map.height);
-            this.map.addTilesetImage('tileset'); 
-            
-            this.layer = this.map.createLayer('Collision');
 
-            this.layer.resizeWorld();      
-        }
-
-        render() {
-            this.game.debug.text('Height : ' + this.map.height, 32, 32, 'rgb(255,255,255)');
+            this.map.addTilesetImage('Calque de Tile 1', 'tiles');            
         }
 
     }
