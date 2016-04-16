@@ -73,6 +73,8 @@
               
             });
         }
+
+       
         
         // Fonctions propres au player
         protected changeForm() {

@@ -7,7 +7,8 @@
         player: SimpleGame.Player;
         platform;
         map: Phaser.Tilemap;
-        layer: Phaser.TilemapLayer;
+        green: Phaser.TilemapLayer;
+        yellow: Phaser.TilemapLayer;
         layerWall = Phaser.TilemapLayer;
         enemies;
         
@@ -36,10 +37,15 @@
             //console.log(this.map.height);
             this.map.addTilesetImage('tileset','tiles'); 
             
-            this.layer = this.map.createLayer('render');
-            this.map.setCollision(2);
+            this.green = this.map.createLayer('green');
+            this.green.resizeWorld();
 
-            this.layer.resizeWorld();
+            this.yellow = this.map.createLayer('yellow');
+            this.yellow.resizeWorld();
+
+            this.map.setCollisionBetween(1,2);
+         
+           
             //this.layer.fixedToCamera = false;
 
             //this.game.camera.y = 2560;
@@ -61,18 +67,29 @@
 
         render() {
             this.game.debug.text('Height : ' + this.map.height, 32, 32, 'rgb(255,255,255)');
+            this.game.debug.body(this.player);
+       
         }
 
         update() {
-           
+            var colorPlayer = String(this.player.getColor());
+            console.log(colorPlayer);
+
+            if (colorPlayer == 'green') {
+                this.game.physics.arcade.collide(this.player, this.green, this.test, null, this);
+            }
+
+            if (colorPlayer == 'yellow') {
+                this.game.physics.arcade.collide(this.player, this.yellow, this.test, null, this);
+            }
+
           
-            this.game.physics.arcade.collide(this.player, this.layer,this.test, null, this);
+            
             //this.game.physics.arcade.overlap(this.player, this.map, this.test,null,this)
         }
 
         test(player, layer) {
-            console.log(layer);
-            this.shutdown();
+            this.game.state.start('Boot');
         }
 
     }
