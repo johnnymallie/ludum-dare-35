@@ -20,11 +20,6 @@
             //this.body.gravity.y = 200;
         }
 
-        create() {
-            
-            
-        }
-
         update() {
             
             this.body.velocity.x = 0;
