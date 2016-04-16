@@ -17,7 +17,7 @@
             this.load.image('playerCircle', 'assets/images/elements/playerCircle.png');
         }
 
-        create() {
+        create() { 
             this.platform = this.add.image(0, 0);
             //this.background = this.add.sprite(0, 0, 'level1');
 

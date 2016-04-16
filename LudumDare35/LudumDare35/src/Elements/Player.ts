@@ -3,7 +3,7 @@
 
         protected velocity;
         protected form;
-
+        protected spacebarPress;
         constructor(game: Phaser.Game, x: number, y: number) {
             // Vitesse du personange
             this.velocity = 300;
@@ -52,11 +52,27 @@
             if (this.game.input.keyboard.isDown(Phaser.Keyboard.DOWN)) {
                 this.body.velocity.y = this.velocity;
             }
-            this.game.input.keyboard.onPressCallback = function () {
-                console.log('hello');
-            }
-                
-            
+
+            /*
+            if (this.game.input.keyboard.upDuration(Phaser.Keyboard.SPACEBAR, 10000)) {
+                console.log('test');
+                 
+            } 
+            */
+
+            var spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+            spacebar.onDown.add(function () {
+                if (!this.spacebarPress) {
+                    console.log('DOWN');
+                    this.spacebarPress = true;
+                }
+            });
+            spacebar.onUp.add(function () {
+                if (this.spacebarPress) {
+                    console.log('UP');
+                    this.spacebarPress = false;
+                }
+            });
         }
 
         // Fonctions propres au player

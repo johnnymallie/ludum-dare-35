@@ -4,7 +4,7 @@
         private self = this;
         
         static global = {
-            playerX: 140,
+            playerX: 160,
             playerY: 450,
             screenWidth: 320,
             screenHeight: 500, 
@@ -21,7 +21,6 @@
             this.state.add('Preloader', Preloader, false);
             this.state.add('MainMenu', MainMenu, false);
             this.state.add('Level1', Level1, false);
-
 
             this.state.start('Boot');
         }
