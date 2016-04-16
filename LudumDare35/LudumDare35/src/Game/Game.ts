@@ -1,15 +1,17 @@
 ﻿module SimpleGame {
     export class Game extends Phaser.Game {
-
+        
+        private self = this;
+        
         static global = {
-            playerWidth: 130,
-            playerHeight: 284,
-            test: 200
+            playerX: 350,
+            playerY: 250,
+            screenWidth: 700,
+            screenHeight: 500
         };
 
         constructor() {
-            super(700, 500, Phaser.AUTO, 'content', null);
-
+            super(Game.global.screenWidth, Game.global.screenHeight, Phaser.AUTO, 'content', null);
             this.state.add('Boot', Boot, false);
             this.state.add('Preloader', Preloader, false);
             this.state.add('MainMenu', MainMenu, false);
