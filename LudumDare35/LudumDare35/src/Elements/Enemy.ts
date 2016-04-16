@@ -8,7 +8,7 @@
             super(game, x, y, 'enemy', 0);
             
             // Vitesse de l'ennemi
-            this.velocity = 1000;
+            this.velocity = 100;
             
             //game.add.image(40, 100, 'player');
             this.anchor.setTo(0.5, 0.5);

@@ -42,8 +42,10 @@
 
             
 
-            this.map.setCollisionBetween(1,10);
-         
+            this.map.setCollisionBetween(1, 10);
+
+            //console.log(this.map);
+            console.log(this.map.objects['enemy']);
            
             //this.layer.fixedToCamera = false;
 
@@ -61,6 +63,13 @@
             this.enemies.add(new Enemy(this.game, 190, 150));
             this.enemies.add(new Enemy(this.game, 260, 150));
 
+            //cool mais pas top
+            //this.map.createFromObjects('enemy', 4, 'enemy', 0, true, false, this.enemies);
+            //mieux
+            for (var enemy in this.map.objects['enemy']) {
+                this.enemies.add(new Enemy(this.game, this.map.objects['enemy'][enemy].x, this.map.objects['enemy'][enemy].y));
+            } 
+
            // console.log(this.enemies);
             
             this.game.camera.y = 2500;
@@ -71,16 +80,19 @@
         render() {
             this.game.debug.text('Height : ' + this.map.height, 32, 32, 'rgb(255,255,255)');
             this.game.debug.body(this.player);
-            this.game.debug.text(String(this.game.time.fps), 2, 14, "#00ff00"); 
-       
+            this.game.debug.text(String(this.game.time.fps), 2, 14, "#00ff00");
+           
         }
 
         update() {
             this.game.camera.y -= 2;
             this.player.body.position.y -= 2;
             this.game.physics.arcade.overlap(this.player, this.green, this.test, this.checkColor, this);
+            
            
         }
+
+        
 
         checkColor(player, collision) {
             var colorOk = false;
