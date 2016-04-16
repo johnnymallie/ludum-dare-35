@@ -4,11 +4,11 @@
     export class Enemy extends Phaser.Sprite {
         protected velocity;
 
-        constructor(game: Phaser.Game) {
-            super(game, null, null, 'enemy', 0);
+        constructor(game: Phaser.Game, x:number, y:number) {
+            super(game, x, y, 'enemy', 0);
             
             // Vitesse de l'ennemi
-            this.velocity = 100;
+            this.velocity = 1000;
             
             //game.add.image(40, 100, 'player');
             this.anchor.setTo(0.5, 0.5);
