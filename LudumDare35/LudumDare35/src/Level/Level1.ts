@@ -6,6 +6,12 @@
         music: Phaser.Sound;
         player: SimpleGame.Player;
         platform;
+        map: Phaser.Tilemap;
+        
+        preload() {
+            console.log('tilemap');
+            this.load.tilemap('level', 'assets/images/levels/level1/map1.json', null, Phaser.Tilemap.TILED_JSON);
+        }
 
         create() {
             this.platform = this.add.image(0, 0);
@@ -14,11 +20,14 @@
             //Physics doesn't work
             //Game.physics.enable(this, Phaser.Physics.ARCADE);
 
-            this.music = this.add.audio('music', 1, false);
+            /*this.music = this.add.audio('music', 1, false);
             this.music.play();
 
-            this.player = new Player(this.game, Game.global.playerWidth, Game.global.playerHeight);
-            
+            this.player = new Player(this.game, Game.global.playerWidth, Game.global.playerHeight);*/
+           
+            this.map = this.add.tilemap('level');
+
+            this.map.addTilesetImage('Calque de Tile 1', 'tiles');            
         }
 
     }

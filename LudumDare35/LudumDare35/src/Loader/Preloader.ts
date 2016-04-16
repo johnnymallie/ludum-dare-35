@@ -6,23 +6,23 @@
 
         preload() {
             //  Set-up our preloader sprite
-            this.preloadBar = this.add.sprite(200, 250, 'preloadBar');
-            this.load.setPreloadSprite(this.preloadBar);
+            //this.preloadBar = this.add.sprite(200, 250, 'preloadBar');
+           // this.load.setPreloadSprite(this.preloadBar);
             //  Load our actual games assets
-            this.load.image('titlepage', 'assets/titlepage.jpg');
-            this.load.image('logo', 'assets/logo.png');
-            this.load.audio('music', 'assets/title.mp3', true);
+            //this.load.image('titlepage', 'assets/titlepage.jpg');
+            //this.load.image('logo', 'assets/logo.png');
+            //this.load.audio('music', 'assets/title.mp3', true);
             //this.load.spritesheet('simon', 'assets/simon.png', 58, 96, 5);
-            this.load.spritesheet('knight', 'assets/knight2.png', 48, 96, 3);
-            this.load.image('level1', 'assets/level1.png');
-            this.load.image('platform', 'assets/platform.png');
+            //this.load.spritesheet('knight', 'assets/knight2.png', 48, 96, 3);
+            //this.load.image('level1', 'assets/level1.png');
+            //this.load.image('platform', 'assets/platform.png');
         }
 
         create() {
 
-            var tween = this.add.tween(this.preloadBar).to({ alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
-            tween.onComplete.add(this.startMainMenu, this);
-
+            //var tween = this.add.tween(this.preloadBar).to({ alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+            // tween.onComplete.add(this.startMainMenu, this);
+            this.startMainMenu();
         }
 
         startMainMenu() {
