@@ -9,14 +9,16 @@
         map: Phaser.Tilemap;
         layer: Phaser.TilemapLayer;
         layerWall = Phaser.TilemapLayer;
+        enemies;
         
         preload() {
-            console.log('tilemap');
+           // console.log('tilemap');
             this.load.tilemap('map', 'assets/images/levels/level1/map2.json', null, Phaser.Tilemap.TILED_JSON);
             this.load.image('tiles', 'assets/images/levels/level1/tileset.png');
             this.load.image('playerTriangle', 'assets/images/elements/playerTriangle.png');
             this.load.image('playerCircle', 'assets/images/elements/playerCircle.png');
             this.load.image('playerSquare', 'assets/images/elements/playerSquare.png');
+            this.load.image('enemy', 'assets/images/elements/enemy.png');
         }
 
         create() { 
@@ -42,10 +44,16 @@
 
             //this.game.camera.y = 2560;
 
-           
 
+            // Rajout du joueur
             this.player = new Player(this.game, Game.global.playerX, Game.global.playerY);
             
+            //Rajout d'un groupe d'ennemis
+
+            this.enemies = this.game.add.group();
+            this.enemies.add( new Enemy(this.game)); 
+            this.enemies.create(150, 150, 'enemy');
+           // console.log(this.enemies);
             this.player.body.gravity.y = -5000;
             this.game.camera.follow(this.player);
             
