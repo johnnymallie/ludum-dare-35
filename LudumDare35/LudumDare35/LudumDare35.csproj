@@ -44,8 +44,8 @@
     <TypeScriptCompile Include="src\Elements\Shoot.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\images\levels\level1\map1..json" />
     <Content Include="assets\images\levels\level1\map1.tmx" />
+    <Content Include="assets\images\levels\level1\map1.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
