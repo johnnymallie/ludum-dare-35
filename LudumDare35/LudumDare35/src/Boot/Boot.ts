@@ -7,7 +7,7 @@
         }
 
         create() {
-            //console.log('hello');
+            console.log('hello');
             //Game.physics.startSystem(Phaser.Physics.ARCADE);
             //  Set the world (global) gravity
             //Game.physics.arcade.gravity.y = 500;
