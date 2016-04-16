@@ -5,6 +5,7 @@
         constructor(game: Phaser.Game, x: number, y: number) {
             
             //super(game, x, y, 'simon', 0);
+            Phaser.State.load
             super(game, x, y, 'knight', 0);
             this.anchor.setTo(0.5, 0);
             this.animations.add('walk', [1, 2], 10, true);
@@ -15,6 +16,7 @@
             this.body.gravity.y = 200;
 
         }
+
         update() {
             
             this.body.velocity.x = 0;
