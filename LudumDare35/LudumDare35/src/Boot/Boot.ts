@@ -3,11 +3,11 @@
     export class Boot extends Phaser.State {
         
         preload() {
-            this.load.image('preloadBar', 'assets/loader.png');
+            //this.load.image('preloadBar', 'assets/loader.png');
         }
 
         create() {
-            console.log('hello');
+            console.log('Boot');
             //Game.physics.startSystem(Phaser.Physics.ARCADE);
             //  Set the world (global) gravity
             //Game.physics.arcade.gravity.y = 500;
