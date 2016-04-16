@@ -27,7 +27,6 @@
     <Content Include="index.html" />
     <Content Include="vendor\phaser.js" />
     <Content Include="vendor\phaser.min.js" />
-    <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
@@ -46,18 +45,21 @@
   <ItemGroup>
     <Content Include="assets\images\levels\level1\map1.tmx" />
     <Content Include="assets\images\levels\level1\map1.json" />
-    <None Include="web.Debug.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
-    <None Include="web.Release.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\images\elements\" />
     <Folder Include="assets\images\menus\" />
     <Folder Include="assets\sounds\effects\" />
     <Folder Include="assets\sounds\musics\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
