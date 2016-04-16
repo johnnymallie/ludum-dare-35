@@ -35,6 +35,8 @@
     <TypeScriptCompile Include="pixi.d.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="tilemap\map1..json" />
+    <Content Include="tilemap\map1.tmx" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -42,6 +44,7 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
   </PropertyGroup>
