@@ -1,4 +1,4 @@
-﻿module Castlevania {
+﻿module SimpleGame {
     export class Game extends Phaser.Game {
 
         static global = {

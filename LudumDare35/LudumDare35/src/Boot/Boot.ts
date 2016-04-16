@@ -1,4 +1,4 @@
-﻿module Castlevania {
+﻿module SimpleGame {
 
     export class Boot extends Phaser.State {
         

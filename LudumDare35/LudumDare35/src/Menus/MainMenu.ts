@@ -1,4 +1,4 @@
-﻿module Castlevania {
+﻿module SimpleGame {
 
     export class MainMenu extends Phaser.State {
 
