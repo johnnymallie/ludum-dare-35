@@ -51,8 +51,11 @@
             //Rajout d'un groupe d'ennemis
 
             this.enemies = this.game.add.group();
-            this.enemies.add( new Enemy(this.game)); 
-            this.enemies.create(150, 150, 'enemy');
+            this.enemies.add(new Enemy(this.game, 50, 150));
+            this.enemies.add(new Enemy(this.game, 120, 150));
+            this.enemies.add(new Enemy(this.game, 190, 150));
+            this.enemies.add(new Enemy(this.game, 260, 150));
+
            // console.log(this.enemies);
             this.player.body.gravity.y = -5000;
             this.game.camera.follow(this.player);
