@@ -79,28 +79,19 @@
             this.game.camera.y -= 2;
             this.player.body.position.y -= 2;
             this.game.physics.arcade.overlap(this.player, this.green, this.test, this.checkColor, this);
-            //console.log(colorPlayer);
-
-           // if (colorPlayer == 'green') {
-           //    
-           // }
-
-           // if (colorPlayer == 'yellow') {
-                
-           // }
-
-          
-            
-            //this.game.physics.arcade.overlap(this.player, this.map, this.test,null,this)
+           
         }
 
         checkColor(player, collision) {
             var colorOk = false;
             var colorPlayer = String(player.getColor());
-            if (collision.index == '1' && colorPlayer == 'yellow') {
+            if (collision.index == '1' && (colorPlayer == 'green' || colorPlayer == 'blue') ) {
                 colorOk = true;
             }
-            if (collision.index == '2' && colorPlayer == 'green') {
+            if (collision.index == '2' && (colorPlayer == 'yellow' || colorPlayer == 'blue')) {
+                colorOk = true;
+            }
+            if (collision.index == '3' && (colorPlayer == 'green' || colorPlayer == 'yellow')) {
                 colorOk = true;
             }
 
