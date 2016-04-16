@@ -7,7 +7,7 @@
 
         create() {
 
-            this.background = this.add.sprite(0, 0, 'titlepage');
+            this.background = this.add.sprite(0, 0, 'backgroundMenu');
             this.background.alpha = 0;
 
             this.logo = this.add.sprite(this.world.centerX, -300, 'logo');
