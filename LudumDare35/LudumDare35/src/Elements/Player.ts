@@ -3,22 +3,21 @@
 
         protected velocity;
         protected forms;
+        protected colors;
         protected actualForm;
 
         constructor(game: Phaser.Game, x: number, y: number) {
             super(game, x, y, 'playerTriangle', 0);
-            
             // Vitesse du personange
             this.velocity = 300;
-
-            // LA 1ère forme du player est le triangle
-            this.forms = ['playerTriangle','playerCircle','playerSquare'];
-                
+            
+            this.forms = ['playerTriangle', 'playerCircle', 'playerSquare'];
+            this.colors = ['yellow', 'blue', 'green'];
+            // La 1ère forme du player est le triangle jaune
             this.actualForm = 0;
             
             //game.add.image(40, 100, 'player');
             this.anchor.setTo(0.5, 0.5);
-            console.log(this);
             this.width = 50;
             this.height = 43;
             //this.animations.add('walk', [1, 2], 10, true);
@@ -62,7 +61,7 @@
             var self = this;
             spacebar.onDown.add(function () {
                 if (!this.spacebarPress) {
-                    console.log(this);
+                    //console.log(this);
                     self.changeForm();
                     this.spacebarPress = true;
                 }
@@ -86,6 +85,10 @@
 
         // Fonctions public
         public getForm() {
+            return this.forms[this.actualForm];
+        }
+
+        public getCouleur() {
             return this.forms[this.actualForm];
         }
 

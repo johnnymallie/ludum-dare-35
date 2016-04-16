@@ -9,14 +9,16 @@
         map: Phaser.Tilemap;
         layer: Phaser.TilemapLayer;
         layerWall = Phaser.TilemapLayer;
-        
+        enemies;
+
         preload() {
-            console.log('tilemap');
+           // console.log('tilemap');
             this.load.tilemap('map', 'assets/images/levels/level1/map2.json', null, Phaser.Tilemap.TILED_JSON);
             this.load.image('tiles', 'assets/images/levels/level1/tileset.png');
             this.load.image('playerTriangle', 'assets/images/elements/playerTriangle.png');
             this.load.image('playerCircle', 'assets/images/elements/playerCircle.png');
             this.load.image('playerSquare', 'assets/images/elements/playerSquare.png');
+            this.load.image('enemy', 'assets/images/elements/enemy.png');
         }
 
         create() { 
@@ -25,7 +27,7 @@
 
             //Physics doesn't work
             this.game.physics.startSystem(Phaser.Physics.ARCADE);
-
+             
             /*this.music = this.add.audio('music', 1, false);
             this.music.play();
             */
@@ -37,7 +39,7 @@
             this.layer = this.map.createLayer('render');
 
             this.layer = this.map.createLayer('wall');
-            console.log(this.map);
+            //console.log(this.map);
             
             this.layer.resizeWorld();
             //this.layer.fixedToCamera = false;
@@ -46,8 +48,15 @@
 
             this.map.setCollisionBetween(1, 10000, true,'wall');
 
+            // Rajout du joueur
             this.player = new Player(this.game, Game.global.playerX, Game.global.playerY);
             
+            //Rajout d'un groupe d'ennemis
+
+            this.enemies = this.game.add.group();
+            this.enemies.add( new Enemy(this.game)); 
+            this.enemies.create(150, 150, 'enemy');
+           // console.log(this.enemies);
         }
 
         render() {
@@ -62,7 +71,7 @@
         }
 
         test(player, layer) {
-            console.log('collision');
+           // console.log('collision');
         }
 
     }
