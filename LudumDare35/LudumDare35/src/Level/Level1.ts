@@ -75,10 +75,8 @@
         }
 
         update() {
-            var colorPlayer = String(this.player.getColor());
-
-            this.game.physics.arcade.collide(this.player, this.yellow, this.test, null, this);
-            this.game.physics.arcade.collide(this.player, this.green, this.test, null, this);
+           
+            this.game.physics.arcade.collide(this.player, this.green, this.test, this.checkColor, this);
             //console.log(colorPlayer);
 
            // if (colorPlayer == 'green') {
@@ -92,6 +90,20 @@
           
             
             //this.game.physics.arcade.overlap(this.player, this.map, this.test,null,this)
+        }
+
+        checkColor(player, collision) {
+            var colorOk = false;
+            var colorPlayer = String(player.getColor());
+            if (collision.index == '1' && colorPlayer == 'yellow') {
+                colorOk = true;
+            }
+            if (collision.index == '2' && colorPlayer == 'green') {
+                colorOk = true;
+            }
+
+            return colorOk;
+
         }
 
         test(player, layer) {
