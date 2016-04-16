@@ -24,8 +24,8 @@
 
             /*this.music = this.add.audio('music', 1, false);
             this.music.play();
-
-            this.player = new Player(this.game, Game.global.playerWidth, Game.global.playerHeight);*/
+            */
+            this.player = new Player(this.game, Game.global.playerX, Game.global.playerY);
            
             this.map = this.add.tilemap('level');
             console.log(this.map.height);
