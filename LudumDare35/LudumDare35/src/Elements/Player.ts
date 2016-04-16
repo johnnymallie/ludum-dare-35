@@ -88,8 +88,8 @@
             return this.forms[this.actualForm];
         }
 
-        public getCouleur() {
-            return this.forms[this.actualForm];
+        public getColor() {
+            return this.colors[this.actualForm];
         }
 
         public killPlayer() {
