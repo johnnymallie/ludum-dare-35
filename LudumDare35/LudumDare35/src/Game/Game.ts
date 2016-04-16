@@ -4,9 +4,9 @@
         private self = this;
         
         static global = {
-            playerX: 350,
+            playerX: 140,
             playerY: 450,
-            screenWidth: 700,
+            screenWidth: 320,
             screenHeight: 500
         };
 
