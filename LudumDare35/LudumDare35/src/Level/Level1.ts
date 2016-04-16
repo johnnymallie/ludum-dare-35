@@ -75,8 +75,8 @@
         }
 
         update() {
-           
-            this.game.physics.arcade.collide(this.player, this.green, this.test, this.checkColor, this);
+
+            this.game.physics.arcade.overlap(this.player, this.green, this.test, this.checkColor, this);
             //console.log(colorPlayer);
 
            // if (colorPlayer == 'green') {
