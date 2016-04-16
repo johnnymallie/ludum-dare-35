@@ -10,7 +10,7 @@
         layer: Phaser.TilemapLayer;
         layerWall = Phaser.TilemapLayer;
         enemies;
-
+        
         preload() {
            // console.log('tilemap');
             this.load.tilemap('map', 'assets/images/levels/level1/map2.json', null, Phaser.Tilemap.TILED_JSON);
@@ -27,7 +27,7 @@
 
             //Physics doesn't work
             this.game.physics.startSystem(Phaser.Physics.ARCADE);
-             
+
             /*this.music = this.add.audio('music', 1, false);
             this.music.play();
             */
@@ -37,16 +37,13 @@
             this.map.addTilesetImage('tileset','tiles'); 
             
             this.layer = this.map.createLayer('render');
+            this.map.setCollision(2);
 
-            this.layer = this.map.createLayer('wall');
-            //console.log(this.map);
-            
             this.layer.resizeWorld();
             //this.layer.fixedToCamera = false;
 
-            this.game.camera.y = 2560;
+            //this.game.camera.y = 2560;
 
-            this.map.setCollisionBetween(1, 10000, true,'wall');
 
             // Rajout du joueur
             this.player = new Player(this.game, Game.global.playerX, Game.global.playerY);
@@ -57,6 +54,9 @@
             this.enemies.add( new Enemy(this.game)); 
             this.enemies.create(150, 150, 'enemy');
            // console.log(this.enemies);
+            this.player.body.gravity.y = -5000;
+            this.game.camera.follow(this.player);
+            
         }
 
         render() {
@@ -64,14 +64,15 @@
         }
 
         update() {
-            this.game.camera.y -= 1;
-            this.player.y -= 1;
-            //this.game.physics.arcade.collide(this.player, this.layer,this.test, null, this);
-            this.game.physics.arcade.overlap(this.player, this.layer, this.test,null,this)
+           
+          
+            this.game.physics.arcade.collide(this.player, this.layer,this.test, null, this);
+            //this.game.physics.arcade.overlap(this.player, this.map, this.test,null,this)
         }
 
         test(player, layer) {
-           // console.log('collision');
+            console.log(layer);
+            this.shutdown();
         }
 
     }
