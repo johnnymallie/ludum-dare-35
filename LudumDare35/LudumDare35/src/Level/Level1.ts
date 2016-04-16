@@ -62,8 +62,9 @@
             this.enemies.add(new Enemy(this.game, 260, 150));
 
            // console.log(this.enemies);
-            this.player.body.gravity.y = -5000;
-            this.game.camera.follow(this.player);
+            
+            this.game.camera.y = 2500;
+            //this.game.camera.follow(this.player);
             
         }
 
@@ -75,7 +76,8 @@
         }
 
         update() {
-
+            this.game.camera.y -= 2;
+            this.player.body.position.y -= 2;
             this.game.physics.arcade.overlap(this.player, this.green, this.test, this.checkColor, this);
             //console.log(colorPlayer);
 
