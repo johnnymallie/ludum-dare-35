@@ -34,6 +34,7 @@
             this.layer = this.map.createLayer('Collision');
 
             this.layer.resizeWorld();     
+            
              
         }
 
