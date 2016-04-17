@@ -1,6 +1,6 @@
 ﻿module SimpleGame {
     export class Game extends Phaser.Game {
-        
+
         private self = this;
         
         static global = {
@@ -24,7 +24,7 @@
         }
         render() {
             // This renders debug information about physics bodies
-            //this.debug.game;
+            // this.debug.game;
         }
     }
 } 

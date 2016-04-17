@@ -5,6 +5,7 @@
         protected forms;
         protected colors;
         protected actualForm;
+        protected collisions;
 
         constructor(game: Phaser.Game, x: number, y: number) {
             super(game, x, y, 'playerTriangle', 0);
@@ -48,14 +49,14 @@
                 }
                 */
             }
-
+            /*
             if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP)) {
                 this.body.velocity.y = -this.velocity;
             }
             if (this.game.input.keyboard.isDown(Phaser.Keyboard.DOWN)) {
                 this.body.velocity.y = this.velocity;
             }
-             
+             */
             var spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
             //Self pas génial, trouver autre chose
             var self = this;
@@ -73,8 +74,6 @@
               
             });
         }
-
-       
         
         // Fonctions propres au player
         protected changeForm() {

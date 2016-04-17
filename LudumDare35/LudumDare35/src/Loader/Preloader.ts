@@ -5,10 +5,10 @@
         preloadBar: Phaser.Sprite;
 
         preload() {
-            //  Set-up our preloader sprite
-            //this.preloadBar = this.add.sprite(200, 250, 'preloadBar');
-           // this.load.setPreloadSprite(this.preloadBar);
-            //  Load our actual games assets
+            // Set-up our preloader sprite
+            // this.preloadBar = this.add.sprite(200, 250, 'preloadBar');
+            // this.load.setPreloadSprite(this.preloadBar);
+            // Load our actual games assets
             this.load.image('backgroundMenu', 'assets/images/menus/backgroundMenu.png');
             this.load.image('logo', 'assets/images/menus/logo.png');
             //this.load.audio('music', 'assets/title.mp3', true);
