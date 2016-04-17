@@ -24,6 +24,11 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="assets\images\levels\level1\tileset.png" />
+    <Content Include="assets\images\menus\backgroundMenu.png" />
+    <Content Include="assets\images\menus\easy.png" />
+    <Content Include="assets\images\menus\hard.png" />
+    <Content Include="assets\images\menus\logo.png" />
+    <Content Include="assets\images\menus\medium.png" />
     <Content Include="index.html" />
     <Content Include="vendor\phaser.js" />
     <Content Include="vendor\phaser.min.js" />
@@ -36,6 +41,7 @@
     <TypeScriptCompile Include="src\Loader\Preloader.ts" />
     <TypeScriptCompile Include="src\Menus\Hud.ts" />
     <TypeScriptCompile Include="src\Menus\MainMenu.ts" />
+    <TypeScriptCompile Include="src\SelectMap\SelectMap.ts" />
     <TypeScriptCompile Include="vendor\p2.d.ts" />
     <TypeScriptCompile Include="vendor\phaser.d.ts" />
     <TypeScriptCompile Include="vendor\pixi.d.ts" />
@@ -49,7 +55,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\images\elements\" />
-    <Folder Include="assets\images\menus\" />
     <Folder Include="assets\sounds\effects\" />
     <Folder Include="assets\sounds\musics\" />
   </ItemGroup>
@@ -58,12 +63,16 @@
     <Content Include="assets\images\levels\level1\map2.json" />
     <Content Include="assets\images\levels\level1\map2.tmx" />
     <Content Include="assets\images\levels\level1\tileset.psd" />
+    <Content Include="assets\images\menus\bouton.psd" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Data" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
@@ -111,4 +120,9 @@
     <TypeScriptSourceMap>false</TypeScriptSourceMap>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(SQLDBExtensionsRefPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(SQLDBExtensionsRefPath)' == ''" />
+  <PropertyGroup>
+    <SsdtUnitTestVersion>2.0</SsdtUnitTestVersion>
+  </PropertyGroup>
 </Project>

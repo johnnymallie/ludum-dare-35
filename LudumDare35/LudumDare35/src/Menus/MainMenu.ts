@@ -31,7 +31,7 @@
 
         startGame() {
 
-            this.game.state.start('Level1', true, false);
+            this.game.state.start('SelectMap', true, false);
 
         }
 
