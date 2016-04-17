@@ -8,6 +8,7 @@
         platform;
         map: Phaser.Tilemap;
         green: Phaser.TilemapLayer;
+        hud: Phaser.Sprite;
       
         enemies;
         
@@ -19,6 +20,8 @@
             this.load.image('playerCircle', 'assets/images/elements/playerCircle.png');
             this.load.image('playerSquare', 'assets/images/elements/playerSquare.png');
             this.load.image('enemy', 'assets/images/elements/enemy.png');
+            this.load.image('hud', 'assets/images/menus/hud.png'),
+
             this.game.time.advancedTiming = true;
         }
 
@@ -55,6 +58,7 @@
             // Rajout du joueur
             this.player = new Player(this.game, Game.global.playerX, Game.global.playerY);
             
+            
             //Rajout d'un groupe d'ennemis
 
             this.enemies = this.game.add.group();
@@ -74,14 +78,19 @@
             
             this.game.camera.y = 2500;
             //this.game.camera.follow(this.player);
+
+            // Rajout du HUD
+            this.hud = new Hud(this.game, 0, 0);
             
+
         }
 
         render() {
+            /*
             this.game.debug.text('Height : ' + this.map.height, 32, 32, 'rgb(255,255,255)');
             this.game.debug.body(this.player);
             this.game.debug.text(String(this.game.time.fps), 2, 14, "#00ff00");
-           
+            */
         }
 
         update() {

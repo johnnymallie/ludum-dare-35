@@ -10,6 +10,10 @@
             // Vitesse de l'ennemi
             this.velocity = 100;
             
+            // Priorité dans la map
+            this.inputEnabled = true;
+            this.input.priorityID = 2;
+
             //game.add.image(40, 100, 'player');
             this.anchor.setTo(0.5, 0.5);
             this.width = 50;
