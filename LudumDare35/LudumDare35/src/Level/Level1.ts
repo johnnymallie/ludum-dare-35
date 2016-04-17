@@ -88,8 +88,8 @@
         }
 
         update() {
-            this.game.camera.y -= 2;
-            this.player.body.position.y -= 2;
+            this.game.camera.y -= 3;
+            this.player.body.position.y -= 3;
             if (this.player.body.position.x <= 0) {
                 this.player.body.position.x = 0;
             }
