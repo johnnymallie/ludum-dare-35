@@ -10,6 +10,8 @@
             // this.load.setPreloadSprite(this.preloadBar);
             this.load.image('backgroundMenu', 'assets/images/menus/backgroundMenu.png');
             this.load.image('logo', 'assets/images/menus/logo.png');
+            this.load.image('logo2', 'assets/images/menus/logo2.png');
+            this.load.image('logo3', 'assets/images/menus/mouseclick.png');
             this.load.image('playerTriangle', 'assets/images/elements/playerTriangle.png');
             this.load.image('playerCircle', 'assets/images/elements/playerCircle.png');
             this.load.image('playerSquare', 'assets/images/elements/playerSquare.png');

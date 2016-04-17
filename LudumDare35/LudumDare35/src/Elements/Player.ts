@@ -13,7 +13,7 @@
             super(game, x, y, 'playerTriangle', 0);
             
             // Vitesse du personange
-            this.velocity = 300;
+            this.velocity = 350;
             
             this.forms = ['playerTriangle', 'playerCircle', 'playerSquare'];
             this.colors = ['yellow', 'blue', 'green'];
