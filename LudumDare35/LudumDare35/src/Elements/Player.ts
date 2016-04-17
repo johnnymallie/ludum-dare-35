@@ -1,14 +1,16 @@
 ﻿module SimpleGame {
     export class Player extends Phaser.Sprite {
 
-        protected velocity;
-        protected forms;
-        protected colors;
-        protected actualForm;
-        protected collisions;
+        velocity;
+        forms;
+        colors;
+        actualForm;
+        collisions;
+        hud: SimpleGame.Hud;
 
         constructor(game: Phaser.Game, x: number, y: number) {
             super(game, x, y, 'playerTriangle', 0);
+            
             // Vitesse du personange
             this.velocity = 300;
             
@@ -85,6 +87,7 @@
                 this.actualForm = 0;
             }
             this.loadTexture(this.forms[this.actualForm], 0);
+            this.hud.switchForm(this.colors[this.actualForm]); 
         }
 
         // Fonctions public
@@ -98,6 +101,10 @@
 
         public killPlayer() {
             this.kill();
+        }
+
+        public setHud(hud: SimpleGame.Hud) {
+            this.hud = hud;
         }
     }
 }

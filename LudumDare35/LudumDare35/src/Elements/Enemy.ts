@@ -1,6 +1,4 @@
 ﻿module SimpleGame {
-
-
     export class Enemy extends Phaser.Sprite {
         protected velocity;
 

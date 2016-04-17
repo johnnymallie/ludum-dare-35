@@ -8,7 +8,7 @@
         platform;
         map: Phaser.Tilemap;
         green: Phaser.TilemapLayer;
-        hud: Phaser.Sprite;
+        hud: SimpleGame.Hud;
         mapFile;
         enemies;
       
@@ -88,8 +88,7 @@
             
             // Rajout du HUD
             this.hud = new Hud(this.game, 0, 0);
-            
-
+            this.player.setHud(this.hud);
         }
 
         render() {
@@ -107,8 +106,6 @@
             
            
         }
-
-        
 
         checkColor(player, collision) {
             var colorOk = false;
@@ -132,5 +129,4 @@
         }
 
     }
-
 } 

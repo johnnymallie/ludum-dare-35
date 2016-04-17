@@ -7,7 +7,7 @@
             playerX: 140,
             playerY: 2500,
             screenWidth: 640,
-            screenHeight: 500
+            screenHeight: 800
         };
 
         constructor() {
@@ -18,7 +18,6 @@
             this.state.add('SelectMap', SelectMap, false);
             this.state.add('Level1', Level1, false);
             
-
             this.state.start('Boot');
         }
         preload() {
