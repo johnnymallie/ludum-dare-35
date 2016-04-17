@@ -50,7 +50,7 @@
             this.map.setCollisionBetween(1, 10);
 
             // Rajout du joueur
-            this.player = new Player(this.game, (this.map.widthInPixels/2), this.map.heightInPixels - 40);
+            this.player = new Player(this.game, (this.map.widthInPixels/2), this.map.heightInPixels - 80);
             
             //Rajout d'un groupe d'ennemis
 
