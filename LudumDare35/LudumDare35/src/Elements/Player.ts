@@ -27,11 +27,16 @@
             //this.scale.setTo(this.width, this.height);
             game.add.existing(this);
            
+
+            //Self pas génial, trouver autre chose
+            //self = this;
         }
 
         update() {
             this.body.velocity.x = 0;
             this.body.velocity.y = 0;
+            //Self pas génial, trouver autre chose
+            var self = this;
             if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
                 this.body.velocity.x = -this.velocity;
                 /*
@@ -57,17 +62,15 @@
                 this.body.velocity.y = this.velocity;
             }
              */
-            var spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-            //Self pas génial, trouver autre chose
-            var self = this;
-            spacebar.onDown.add(function () {
+            
+            this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR).onDown.add(function () {
                 if (!this.spacebarPress) {
                     //console.log(this);
                     self.changeForm();
                     this.spacebarPress = true;
                 }
             });
-            spacebar.onUp.add(function () {
+            this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR).onUp.add(function () {
                 if (this.spacebarPress) {
                     this.spacebarPress = false;
                 }

@@ -39,6 +39,7 @@
     <TypeScriptCompile Include="src\Game\Game.ts" />
     <TypeScriptCompile Include="src\Level\Level1.ts" />
     <TypeScriptCompile Include="src\Loader\Preloader.ts" />
+    <TypeScriptCompile Include="src\Menus\Hud.ts" />
     <TypeScriptCompile Include="src\Menus\MainMenu.ts" />
     <TypeScriptCompile Include="src\SelectMap\SelectMap.ts" />
     <TypeScriptCompile Include="vendor\p2.d.ts" />

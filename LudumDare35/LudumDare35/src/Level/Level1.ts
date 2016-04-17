@@ -8,6 +8,7 @@
         platform;
         map: Phaser.Tilemap;
         green: Phaser.TilemapLayer;
+        hud: Phaser.Sprite;
         mapFile;
         enemies;
         mapName;
@@ -28,6 +29,8 @@
             this.load.image('playerCircle', 'assets/images/elements/playerCircle.png');
             this.load.image('playerSquare', 'assets/images/elements/playerSquare.png');
             this.load.image('enemy', 'assets/images/elements/enemy.png');
+            this.load.image('hud', 'assets/images/menus/hud.png'),
+
             this.game.time.advancedTiming = true;
         }
 
@@ -54,6 +57,7 @@
             // Rajout du joueur
             this.player = new Player(this.game, (this.map.widthInPixels/2), this.map.heightInPixels - 40);
             
+            
             //Rajout d'un groupe d'ennemis
 
             this.enemies = this.game.add.group();
@@ -70,25 +74,30 @@
             } 
 
            // console.log(this.enemies);
-
+            
             this.game.camera.y = this.map.heightInPixels;
             //this.game.camera.y = 2560;
             //this.game.camera.follow(this.player);
             
+            // Rajout du HUD
+            this.hud = new Hud(this.game, 0, 0);
+            
+
         }
 
         render() {
+            /*
             this.game.debug.text('Height : ' + this.map.height, 32, 32, 'rgb(255,255,255)');
             this.game.debug.body(this.player);
             this.game.debug.text(String(this.game.time.fps), 2, 14, "#00ff00");
-           
+            */
         }
 
         update() {
             this.game.camera.y -= 2;
             this.player.body.position.y -= 2;
             this.game.physics.arcade.overlap(this.player, this.green, this.test, this.checkColor, this);
-
+            
             this.game.physics.arcade.overlap(this.player, this.enemies, this.test, null, this);
             //Zone de fin 
             if (this.player.body.position.y < 0) {
