@@ -19,8 +19,8 @@
             
             //game.add.image(40, 100, 'player');
             this.anchor.setTo(0.5, 0.5);
-            this.width = 50;
-            this.height = 43;
+            this.width = 48;
+            this.height = 48;
             //this.animations.add('walk', [1, 2], 10, true);
             //this.animations.add('walk', [0, 1, 2, 3, 4], 10, true);
             game.physics.enable(this, Phaser.Physics.ARCADE);

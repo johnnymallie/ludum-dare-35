@@ -10,8 +10,10 @@
         green: Phaser.TilemapLayer;
         mapFile;
         enemies;
+        mapName;
 
         init(mapName) {
+            this.mapName = mapName;
             var stringName = String(mapName);
             this.mapFile = 'assets/images/levels/level1/' + stringName + '.json';
             console.log(this.mapFile);
@@ -47,28 +49,18 @@
             this.green = this.map.createLayer('green');
             this.green.resizeWorld();
 
-            
-
             this.map.setCollisionBetween(1, 10);
 
-            //console.log(this.map);
-            console.log(this.map.objects['enemy']);
-           
-            //this.layer.fixedToCamera = false;
-
-            //this.game.camera.y = 2560;
-
-
             // Rajout du joueur
-            this.player = new Player(this.game, Game.global.playerX, Game.global.playerY);
+            this.player = new Player(this.game, (this.map.widthInPixels/2), this.map.heightInPixels - 40);
             
             //Rajout d'un groupe d'ennemis
 
             this.enemies = this.game.add.group();
-            this.enemies.add(new Enemy(this.game, 50, 150));
+            /*this.enemies.add(new Enemy(this.game, 50, 150));
             this.enemies.add(new Enemy(this.game, 120, 150));
             this.enemies.add(new Enemy(this.game, 190, 150));
-            this.enemies.add(new Enemy(this.game, 260, 150));
+            this.enemies.add(new Enemy(this.game, 260, 150));*/
 
             //cool mais pas top
             //this.map.createFromObjects('enemy', 4, 'enemy', 0, true, false, this.enemies);
@@ -78,8 +70,9 @@
             } 
 
            // console.log(this.enemies);
-            
-            this.game.camera.y = 2500;
+
+            this.game.camera.y = this.map.heightInPixels;
+            //this.game.camera.y = 2560;
             //this.game.camera.follow(this.player);
             
         }
@@ -95,8 +88,12 @@
             this.game.camera.y -= 2;
             this.player.body.position.y -= 2;
             this.game.physics.arcade.overlap(this.player, this.green, this.test, this.checkColor, this);
-            
-           
+
+            this.game.physics.arcade.overlap(this.player, this.enemies, this.test, null, this);
+            //Zone de fin 
+            if (this.player.body.position.y < 0) {
+                this.game.state.start('SelectMap');
+            }
         }
 
         
@@ -119,7 +116,7 @@
         }
 
         test(player, layer) {
-            this.game.state.start('Boot');
+            this.game.state.start('Level1', true, false, [this.mapName]);
         }
 
     }

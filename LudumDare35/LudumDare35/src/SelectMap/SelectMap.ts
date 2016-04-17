@@ -4,44 +4,44 @@
 
         background: Phaser.Sprite;
         logo: Phaser.Sprite;
-        easy: Phaser.Image;
-        medium: Phaser.Image;
-        hard: Phaser.Image;
+        map1: Phaser.Image;
+        map2: Phaser.Image;
+        map3: Phaser.Image;
 
         preload() {
-            this.game.load.image('easy', 'assets/images/menus/easy.png');
-            this.game.load.image('medium', 'assets/images/menus/medium.png');
-            this.game.load.image('hard', 'assets/images/menus/hard.png');
+            this.game.load.image('map1', 'assets/images/menus/map1.png');
+            this.game.load.image('map2', 'assets/images/menus/map2.png');
+            this.game.load.image('map3', 'assets/images/menus/map3.png');
         }
 
         create() {
 
-            var easyImage = this.game.add.sprite(this.game.world.centerX, 100, 'easy');
-            easyImage.anchor.set(0.5);
-            easyImage.inputEnabled = true;
-            easyImage.events.onInputDown.add(this.easyListener, this);
+            var map1Image = this.game.add.sprite(this.game.world.centerX, 100, 'map1');
+            map1Image.anchor.set(0.5);
+            map1Image.inputEnabled = true;
+            map1Image.events.onInputDown.add(this.map1Listener, this);
 
-            var mediumImage = this.game.add.sprite(this.game.world.centerX, 200, 'medium');
-            mediumImage.anchor.set(0.5);
-            mediumImage.inputEnabled = true;
-            mediumImage.events.onInputDown.add(this.mediumListener, this);
+            var map2Image = this.game.add.sprite(this.game.world.centerX, 200, 'map2');
+            map2Image.anchor.set(0.5);
+            map2Image.inputEnabled = true;
+            map2Image.events.onInputDown.add(this.map2Listener, this);
 
-            var hardImage = this.game.add.sprite(this.game.world.centerX, 300, 'hard');
-            hardImage.anchor.set(0.5);
-            hardImage.inputEnabled = true;
-            hardImage.events.onInputDown.add(this.hardListener, this);
+            var map3Image = this.game.add.sprite(this.game.world.centerX, 300, 'map3');
+            map3Image.anchor.set(0.5);
+            map3Image.inputEnabled = true;
+            map3Image.events.onInputDown.add(this.map3Listener, this);
         }
 
-        easyListener() {
+        map1Listener() {
+            this.game.state.start('Level1', true, false, ['map1']);
+        }
+
+        map2Listener() {
             this.game.state.start('Level1', true, false, ['map2']);
         }
 
-        mediumListener() {
-            this.game.state.start('Level1', true, false, ['medium']);
-        }
-
-        hardListener() {
-            this.game.state.start('Level1', true, false, ['hard']);
+        map3Listener() {
+            this.game.state.start('Level1', true, false, ['map3']);
         }
     }
 
