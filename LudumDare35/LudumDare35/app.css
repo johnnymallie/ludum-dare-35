@@ -1,0 +1,11 @@
+body {
+    font-family: 'Audiowide', cursive;
+}
+#content {
+    display: inline-block;
+    float:left;
+    margin-right:30px;
+}
+#infos {
+    float:left;
+}
