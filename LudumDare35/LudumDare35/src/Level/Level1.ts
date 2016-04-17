@@ -8,12 +8,19 @@
         platform;
         map: Phaser.Tilemap;
         green: Phaser.TilemapLayer;
-      
+        mapFile;
         enemies;
+
+        init(mapName) {
+            var stringName = String(mapName);
+            this.mapFile = 'assets/images/levels/level1/' + stringName + '.json';
+            console.log(this.mapFile);
+        }
         
         preload() {
-           // console.log('tilemap');
-            this.load.tilemap('map', 'assets/images/levels/level1/map2.json', null, Phaser.Tilemap.TILED_JSON);
+            console.log('tilemap');
+            this.load.tilemap('map', this.mapFile, null, Phaser.Tilemap.TILED_JSON);
+            //this.load.tilemap('map', 'assets/images/levels/level1/map2.json', null, Phaser.Tilemap.TILED_JSON);
             this.load.image('tiles', 'assets/images/levels/level1/tileset.png');
             this.load.image('playerTriangle', 'assets/images/elements/playerTriangle.png');
             this.load.image('playerCircle', 'assets/images/elements/playerCircle.png');
