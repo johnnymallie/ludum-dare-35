@@ -17,11 +17,11 @@
             this.mapName = mapName;
             var stringName = String(mapName);
             this.mapFile = 'assets/images/levels/level1/' + stringName + '.json';
-            console.log(this.mapFile);
+           
         }
         
         preload() {
-            console.log('tilemap');
+           
             this.load.tilemap('map', this.mapFile, null, Phaser.Tilemap.TILED_JSON);
             //this.load.tilemap('map', 'assets/images/levels/level1/map2.json', null, Phaser.Tilemap.TILED_JSON);
             this.load.image('tiles', 'assets/images/levels/level1/tileset.png');
@@ -70,7 +70,8 @@
             //this.map.createFromObjects('enemy', 4, 'enemy', 0, true, false, this.enemies);
             //mieux
             for (var enemy in this.map.objects['enemy']) {
-                this.enemies.add(new Enemy(this.game, this.map.objects['enemy'][enemy].x, this.map.objects['enemy'][enemy].y));
+                console.log(this.map.objects['enemy'][enemy]);
+                this.enemies.add(new Enemy(this.game, this.map.objects['enemy'][enemy].x, this.map.objects['enemy'][enemy].y, this.map.objects['enemy'][enemy].properties));
             } 
 
            // console.log(this.enemies);
@@ -95,6 +96,12 @@
         update() {
             this.game.camera.y -= 2;
             this.player.body.position.y -= 2;
+            if (this.player.body.position.x <= 0) {
+                this.player.body.position.x = 0;
+            }
+            if (this.player.body.position.x >= (this.map.widthInPixels-this.player.width)) {
+                this.player.body.position.x = this.map.widthInPixels - this.player.width;
+            }
             this.game.physics.arcade.overlap(this.player, this.green, this.test, this.checkColor, this);
             
             this.game.physics.arcade.overlap(this.player, this.enemies, this.test, null, this);

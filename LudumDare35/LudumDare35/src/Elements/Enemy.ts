@@ -1,19 +1,25 @@
 ﻿module SimpleGame {
     export class Enemy extends Phaser.Sprite {
         protected velocity;
-
-        constructor(game: Phaser.Game, x:number, y:number) {
+        type;
+        constructor(game: Phaser.Game, x:number, y:number,properties) {
             super(game, x, y, 'enemy', 0);
             
             // Vitesse de l'ennemi
-            this.velocity = 100;
+            if (properties) {
+                this.type = properties['type'];
+            } else {
+                this.velocity = 100;
+                this.type = 'normal';
+            }
+            
             
             // Priorité dans la map
-            this.inputEnabled = true;
-            this.input.priorityID = 2;
+            //this.inputEnabled = true;
+            //this.input.priorityID = 2;
 
             //game.add.image(40, 100, 'player');
-            this.anchor.setTo(0.5, 0.5);
+            //this.anchor.setTo(0.5, 0.5);
             this.width = 50;
             this.height = 43;
             //this.animations.add('walk', [1, 2], 10, true);
@@ -25,7 +31,21 @@
         }
 
         update() {
-            this.body.velocity.y = this.velocity;
+            if (this.type == 'normal') {
+                this.body.velocity.y = this.velocity;
+            } else {
+                if (this.type == 'still') {
+
+                }
+                if (this.type == 'left') {
+                    this.body.position.x -= 2;
+                } 
+                if (this.type == 'right') {
+                    this.body.position.x += 2;
+                } 
+                
+            }
+            
         }
         // Fonctions public
         public killPlayer() {
