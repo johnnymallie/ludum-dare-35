@@ -34,15 +34,18 @@
             if (this.type == 'normal') {
                 this.body.velocity.y = this.velocity;
             } else {
-                if (this.type == 'still') {
+                if ((this.game.camera.position.y - (this.game.height/4)) < this.body.position.y) {
+                    if (this.type == 'still') {
 
+                    }
+                    if (this.type == 'left') {
+                        this.body.position.x -= 1;
+                    }
+                    if (this.type == 'right') {
+                        this.body.position.x += 1;
+                    } 
                 }
-                if (this.type == 'left') {
-                    this.body.position.x -= 2;
-                } 
-                if (this.type == 'right') {
-                    this.body.position.x += 2;
-                } 
+                
                 
             }
             
