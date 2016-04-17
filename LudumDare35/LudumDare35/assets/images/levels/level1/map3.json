@@ -14,7 +14,7 @@
         {
          "draworder":"topdown",
          "height":160,
-         "name":"Enemy",
+         "name":"enemy",
          "objects":[
                 {
                  "gid":4,
@@ -26,19 +26,7 @@
                  "visible":true,
                  "width":48,
                  "x":288,
-                 "y":2304
-                }, 
-                {
-                 "gid":3,
-                 "height":16,
-                 "id":2,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":112,
-                 "y":2128
+                 "y":2224
                 }, 
                 {
                  "gid":4,
@@ -49,8 +37,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":112,
-                 "y":2128
+                 "x":96,
+                 "y":2016
                 }, 
                 {
                  "gid":4,
@@ -61,8 +49,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":272,
-                 "y":2128
+                 "x":240,
+                 "y":2016
                 }, 
                 {
                  "gid":4,
@@ -73,8 +61,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":432,
-                 "y":2128
+                 "x":400,
+                 "y":2016
                 }, 
                 {
                  "gid":4,
@@ -85,8 +73,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":576,
-                 "y":2128
+                 "x":544,
+                 "y":2016
                 }],
          "opacity":1,
          "type":"objectgroup",
