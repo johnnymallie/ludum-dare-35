@@ -4,6 +4,7 @@
         
         preload() {
             //this.load.image('preloadBar', 'assets/loader.png');
+            this.load.audio('levelsMusic', ['assets/sounds/musics/levels.mp3', 'assets/sounds/musics/levels.ogg']);
         }
 
         create() {
@@ -24,6 +25,8 @@
                 //  Same goes for mobile settings.
             }
             
+            Game.global.levelsMusic = this.add.audio('levelsMusic');
+            Game.global.levelsMusic.loop = true;
             this.game.state.start('Preloader', true, false);
 
         }

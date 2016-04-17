@@ -47,7 +47,6 @@
     <TypeScriptCompile Include="vendor\pixi.d.ts" />
     <TypeScriptCompile Include="src\Elements\Enemy.ts" />
     <TypeScriptCompile Include="src\Elements\Player.ts" />
-    <TypeScriptCompile Include="src\Elements\Shoot.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\images\levels\level1\map1.tmx" />

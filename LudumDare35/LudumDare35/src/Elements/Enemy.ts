@@ -47,11 +47,5 @@
             }
             
         }
-        // Fonctions public
-        public killPlayer() {
-            this.kill();
-        }
-    
     }
-
 }

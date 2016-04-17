@@ -25,12 +25,7 @@
             this.load.tilemap('map', this.mapFile, null, Phaser.Tilemap.TILED_JSON);
             //this.load.tilemap('map', 'assets/images/levels/level1/map2.json', null, Phaser.Tilemap.TILED_JSON);
             this.load.image('tiles', 'assets/images/levels/level1/tileset.png');
-            this.load.image('playerTriangle', 'assets/images/elements/playerTriangle.png');
-            this.load.image('playerCircle', 'assets/images/elements/playerCircle.png');
-            this.load.image('playerSquare', 'assets/images/elements/playerSquare.png');
-            this.load.image('enemy', 'assets/images/elements/enemy.png');
-            this.load.image('hud', 'assets/images/menus/hud.png'),
-
+            
             this.game.time.advancedTiming = true;
         }
 
@@ -56,7 +51,6 @@
 
             // Rajout du joueur
             this.player = new Player(this.game, (this.map.widthInPixels/2), this.map.heightInPixels - 40);
-            
             
             //Rajout d'un groupe d'ennemis
 
@@ -107,6 +101,7 @@
             this.game.physics.arcade.overlap(this.player, this.enemies, this.test, null, this);
             //Zone de fin 
             if (this.player.body.position.y < 0) {
+                
                 this.game.state.start('SelectMap');
             }
         }
@@ -129,6 +124,7 @@
         }
 
         test(player, layer) {
+            this.player.killPlayer();
             this.game.state.start('Level1', true, false, [this.mapName]);
         }
 

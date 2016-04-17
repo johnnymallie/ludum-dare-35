@@ -2,20 +2,25 @@
 
     export class Preloader extends Phaser.State {
 
-        preloadBar: Phaser.Sprite;
+        preloadBar: Phaser.Sprite; 
 
         preload() {
             // Set-up our preloader sprite
             // this.preloadBar = this.add.sprite(200, 250, 'preloadBar');
             // this.load.setPreloadSprite(this.preloadBar);
-            // Load our actual games assets
             this.load.image('backgroundMenu', 'assets/images/menus/backgroundMenu.png');
             this.load.image('logo', 'assets/images/menus/logo.png');
-            //this.load.audio('music', 'assets/title.mp3', true);
-            //this.load.spritesheet('simon', 'assets/simon.png', 58, 96, 5);
-            //this.load.spritesheet('knight', 'assets/knight2.png', 48, 96, 3);
-            //this.load.image('level1', 'assets/level1.png');
-            //this.load.image('platform', 'assets/platform.png');
+            this.load.image('playerTriangle', 'assets/images/elements/playerTriangle.png');
+            this.load.image('playerCircle', 'assets/images/elements/playerCircle.png');
+            this.load.image('playerSquare', 'assets/images/elements/playerSquare.png');
+            this.load.image('enemy', 'assets/images/elements/enemy.png');
+            this.load.image('hud', 'assets/images/menus/hud.png');
+
+            this.load.audio('startSound', ['assets/sounds/effects/start.mp3', 'assets/sounds/effects/start.ogg']);
+            this.load.audio('changeSound', ['assets/sounds/effects/change.mp3', 'assets/sounds/effects/change.ogg']);
+            this.load.audio('deathSound', ['assets/sounds/effects/boom.mp3', 'assets/sounds/effects/boom.ogg']);
+            this.load.audio('selectSound', ['assets/sounds/effects/select.mp3', 'assets/sounds/effects/select.ogg']);
+
         }
 
         create() {
