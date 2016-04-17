@@ -5,8 +5,9 @@
         forms;
         colors;
         actualForm;
-        collisions;
         hud: SimpleGame.Hud;
+        changeSound: Phaser.Sound;
+        deathSound: Phaser.Sound;
 
         constructor(game: Phaser.Game, x: number, y: number) {
             super(game, x, y, 'playerTriangle', 0);
@@ -23,6 +24,10 @@
             this.anchor.setTo(0.5, 0.5);
             this.width = 48;
             this.height = 48;
+
+            this.changeSound = game.add.audio('changeSound');
+            this.deathSound = game.add.audio('deathSound');
+
             //this.animations.add('walk', [1, 2], 10, true);
             //this.animations.add('walk', [0, 1, 2, 3, 4], 10, true);
             game.physics.enable(this, Phaser.Physics.ARCADE);
@@ -37,7 +42,7 @@
         update() {
             this.body.velocity.x = 0;
             this.body.velocity.y = 0;
-            //Self pas génial, trouver autre chose
+            //Self pas génial dans update, trouver autre chose
             var self = this;
             if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
                 this.body.velocity.x = -this.velocity;
@@ -69,6 +74,7 @@
                 if (!this.spacebarPress) {
                     //console.log(this);
                     self.changeForm();
+                    self.changeSound.play();
                     this.spacebarPress = true;
                 }
             });
@@ -88,6 +94,7 @@
             }
             this.loadTexture(this.forms[this.actualForm], 0);
             this.hud.switchForm(this.colors[this.actualForm]); 
+            
         }
 
         // Fonctions public
@@ -100,7 +107,9 @@
         }
 
         public killPlayer() {
-            this.kill();
+            this.changeSound.stop();
+            this.deathSound.play();
+            //this.kill();
         }
 
         public setHud(hud: SimpleGame.Hud) {

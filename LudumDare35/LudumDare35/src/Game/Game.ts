@@ -7,7 +7,8 @@
             playerX: 140,
             playerY: 2500,
             screenWidth: 640,
-            screenHeight: 800
+            screenHeight: 800,
+            levelsMusic : null
         };
 
         constructor() {
@@ -17,11 +18,12 @@
             this.state.add('MainMenu', MainMenu, false);
             this.state.add('SelectMap', SelectMap, false);
             this.state.add('Level1', Level1, false);
-            
             this.state.start('Boot');
+            
         }
         preload() {
-            this.load.image("decepticon", "decepticon.png");
+            
+            
         }
         render() {
             // This renders debug information about physics bodies

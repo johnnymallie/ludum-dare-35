@@ -4,8 +4,9 @@
 
         background: Phaser.Sprite;
         logo: Phaser.Sprite;
-
+        startSound;
         create() {
+            this.startSound = this.game.add.audio('startSound');
 
             this.background = this.add.sprite(0, 0, 'backgroundMenu');
             this.background.alpha = 0;
@@ -21,7 +22,7 @@
         }
 
         fadeOut() {
-
+            this.startSound.play();
             this.add.tween(this.background).to({ alpha: 0 }, 2000, Phaser.Easing.Linear.None, true);
             var tween = this.add.tween(this.logo).to({ y: 800 }, 2000, Phaser.Easing.Linear.None, true);
 
