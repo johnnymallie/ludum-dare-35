@@ -38,10 +38,10 @@
 
                 }
                 if (this.type == 'left') {
-                    this.body.position.x -= 2;
+                    this.body.position.x -= 1;
                 } 
                 if (this.type == 'right') {
-                    this.body.position.x += 2;
+                    this.body.position.x += 1;
                 } 
                 
             }
