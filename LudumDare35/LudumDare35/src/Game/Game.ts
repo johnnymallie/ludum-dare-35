@@ -8,7 +8,8 @@
             playerY: 2500,
             screenWidth: 640,
             screenHeight: 800,
-            levelsMusic : null
+            levelsMusic: null,
+            volume: 0.6
         };
 
         constructor() {
@@ -19,11 +20,8 @@
             this.state.add('SelectMap', SelectMap, false);
             this.state.add('Level1', Level1, false);
             this.state.start('Boot');
-            
         }
         preload() {
-            
-            
         }
         render() {
             // This renders debug information about physics bodies

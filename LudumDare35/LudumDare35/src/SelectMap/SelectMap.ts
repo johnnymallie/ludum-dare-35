@@ -37,7 +37,7 @@
                 Game.global.levelsMusic.play();
             }
             this.selectSound = this.game.add.audio('selectSound');
-            
+            this.selectSound.volume = Game.global.volume;
         }
 
         map1Listener() {

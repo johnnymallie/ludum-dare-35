@@ -2,8 +2,6 @@
 
     export class Level1 extends Phaser.State {
 
-        background: Phaser.Sprite;
-        music: Phaser.Sound;
         player: SimpleGame.Player;
         platform;
         map: Phaser.Tilemap;
@@ -12,6 +10,7 @@
         mapFile;
         enemies;
         mapName;
+        finishSound: Phaser.Sound;
 
         init(mapName) {
             this.mapName = mapName;
@@ -23,6 +22,7 @@
         preload() {
            
             this.load.tilemap('map', this.mapFile, null, Phaser.Tilemap.TILED_JSON);
+            this.load.image('spaceBackground', 'assets/images/levels/space.png');
             //this.load.tilemap('map', 'assets/images/levels/level1/map2.json', null, Phaser.Tilemap.TILED_JSON);
             this.load.image('tiles', 'assets/images/levels/level1/tileset.png');
             
@@ -30,11 +30,18 @@
         }
 
         create() { 
+            // Background espace étoilé
+            this.add.sprite(0, 1700, 'spaceBackground');
+            this.add.sprite(0, 900, 'spaceBackground');
+            this.add.sprite(0, 100, 'spaceBackground');
+            this.add.sprite(0, -700, 'spaceBackground');
             this.platform = this.add.image(0, 0);
             //this.background = this.add.sprite(0, 0, 'level1');
 
             //Physics doesn't work
             this.game.physics.startSystem(Phaser.Physics.ARCADE);
+
+            this.finishSound = this.game.add.audio('selectSound');
 
             /*this.music = this.add.audio('music', 1, false);
             this.music.play();
@@ -64,7 +71,6 @@
             //this.map.createFromObjects('enemy', 4, 'enemy', 0, true, false, this.enemies);
             //mieux
             for (var enemy in this.map.objects['enemy']) {
-                console.log(this.map.objects['enemy'][enemy]);
                 this.enemies.add(new Enemy(this.game, this.map.objects['enemy'][enemy].x, this.map.objects['enemy'][enemy].y, this.map.objects['enemy'][enemy].properties));
             } 
 
@@ -77,6 +83,7 @@
             // Rajout du HUD
             this.hud = new Hud(this.game, 0, 0);
             this.player.setHud(this.hud);
+            
         }
 
         render() {
@@ -88,12 +95,15 @@
         }
 
         update() {
+            
+            console.log('ALIVE');
+            
             this.game.camera.y -= 3;
             this.player.body.position.y -= 3;
             if (this.player.body.position.x <= 0) {
                 this.player.body.position.x = 0;
             }
-            if (this.player.body.position.x >= (this.map.widthInPixels-this.player.width)) {
+            if (this.player.body.position.x >= (this.map.widthInPixels - this.player.width)) {
                 this.player.body.position.x = this.map.widthInPixels - this.player.width;
             }
             this.game.physics.arcade.overlap(this.player, this.green, this.test, this.checkColor, this);
@@ -101,7 +111,9 @@
             this.game.physics.arcade.overlap(this.player, this.enemies, this.test, null, this);
             //Zone de fin 
             if (this.player.body.position.y < 0) {
-                
+                this.player.stopSounds();
+                this.finishSound.play();
+
                 this.game.state.start('SelectMap');
             }
         }
@@ -125,7 +137,9 @@
 
         test(player, layer) {
             this.player.killPlayer();
-            this.game.state.start('Level1', true, false, [this.mapName]);
+            this.game.time.events.add(2000, function () {
+                this.game.state.start('Level1', true, false, [this.mapName]);
+            }, this);
         }
 
     }

@@ -9,19 +9,20 @@
         startSound;
         create() {
             this.startSound = this.game.add.audio('startSound');
+            this.startSound.volume = Game.global.volume;
 
             this.background = this.add.sprite(0, 0, 'backgroundMenu');
             this.background.alpha = 0;
 
-            this.logo = this.add.sprite(this.world.centerX, this.world.centerY, 'logo');
+            this.logo = this.add.sprite(this.world.centerX, this.world.centerY -100, 'logo');
             this.logo.alpha = 0;
             this.logo.anchor.setTo(0.5, 0.5);
 
-            this.logo2 = this.add.sprite(this.world.centerX, this.world.centerY + 100, 'logo2');
+            this.logo2 = this.add.sprite(this.world.centerX, this.world.centerY, 'logo2');
             this.logo2.alpha = 0;
             this.logo2.anchor.setTo(0.5, 0.5);
 
-            this.logo3 = this.add.sprite(this.world.centerX, this.world.centerY + 150, 'logo3');
+            this.logo3 = this.add.sprite(this.world.centerX, this.world.centerY + 100, 'logo3');
             this.logo3.alpha = 0;
             this.logo3.anchor.setTo(0.5, 0.5);
             

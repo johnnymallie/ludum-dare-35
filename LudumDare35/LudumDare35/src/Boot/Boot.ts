@@ -27,6 +27,7 @@
             
             Game.global.levelsMusic = this.add.audio('levelsMusic');
             Game.global.levelsMusic.loop = true;
+            Game.global.levelsMusic.volume = Game.global.volume;
             this.game.state.start('Preloader', true, false);
 
         }
