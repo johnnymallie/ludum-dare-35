@@ -9,7 +9,7 @@
             screenWidth: 640,
             screenHeight: 800,
             levelsMusic: null,
-            volume: 0.6
+            volume: 0.3
         };
 
         constructor() {

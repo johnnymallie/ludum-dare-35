@@ -7,13 +7,14 @@
         map1: Phaser.Image;
         map2: Phaser.Image;
         map3: Phaser.Image;
+        map4: Phaser.Image;
         selectSound: Phaser.Sound;
 
         preload() {
             this.game.load.image('map1', 'assets/images/menus/map1.png');
             this.game.load.image('map2', 'assets/images/menus/map2.png');
             this.game.load.image('map3', 'assets/images/menus/map3.png');
-            
+            this.game.load.image('map4', 'assets/images/menus/map4.png');
         }
 
         create() {
@@ -32,6 +33,11 @@
             map3Image.anchor.set(0.5);
             map3Image.inputEnabled = true;
             map3Image.events.onInputDown.add(this.map3Listener, this);
+
+            var map4Image = this.game.add.sprite(this.game.world.centerX, 400, 'map4');
+            map4Image.anchor.set(0.5);
+            map4Image.inputEnabled = true;
+            map4Image.events.onInputDown.add(this.map4Listener, this);
             
             if (!Game.global.levelsMusic.isPlaying) {
                 Game.global.levelsMusic.play();
@@ -53,6 +59,10 @@
         map3Listener() {
             this.selectSound.play();
             this.game.state.start('Level1', true, false, ['map3']);
+        }
+        map4Listener() {
+            this.selectSound.play();
+            this.game.state.start('Level1', true, false, ['map4']);
         }
     }
 

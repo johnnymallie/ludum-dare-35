@@ -28,6 +28,7 @@
     <Content Include="assets\images\menus\logo.png" />
     <Content Include="assets\images\menus\map1.png" />
     <Content Include="assets\images\menus\map2.png" />
+    <Content Include="assets\images\menus\map4.png" />
     <Content Include="assets\images\menus\map3.png" />
     <Content Include="index.html" />
     <Content Include="vendor\phaser.js" />
