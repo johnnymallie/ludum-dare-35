@@ -59,12 +59,13 @@
 
         update() {
             this.body.velocity.x = 0;
-            this.fire.body.velocity.x = 0;
+            //this.fire.body.velocity.x = 0;
             //Self pas génial dans update, trouver autre chose
             var self = this;
             if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
                 this.body.velocity.x = -this.velocity;
-                this.fire.body.velocity.x = -this.velocity;
+               
+                //this.fire.body.velocity.x = -this.velocity;
                 /*
                 if (this.scale.x == 1) {
                     this.scale.x = -1;
@@ -74,7 +75,7 @@
 
             if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
                 this.body.velocity.x = this.velocity; 
-                this.fire.body.velocity.x = this.velocity;
+                //this.fire.body.velocity.x = this.velocity;
                 /*
                 if (this.scale.x == 1) {
                     this.scale.x = -1;
@@ -104,6 +105,8 @@
                 }
               
             });
+
+            this.fire.body.x = this.body.x+16;
         }
         
         // Fonctions propres au player
