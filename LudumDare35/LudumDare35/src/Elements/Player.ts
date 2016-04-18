@@ -118,7 +118,7 @@
         }
 
         // Fonctions public
-        public getForm() {
+        public getForm() { 
             return this.forms[this.actualForm];
         }
 
