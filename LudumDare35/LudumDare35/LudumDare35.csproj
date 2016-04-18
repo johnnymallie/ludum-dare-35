@@ -66,6 +66,8 @@
     <Content Include="assets\images\menus\bouton.psd" />
     <Content Include="assets\images\levels\level1\map3.json" />
     <Content Include="assets\images\levels\level1\map3.tmx" />
+    <Content Include="assets\images\levels\level1\map4.json" />
+    <Content Include="assets\images\levels\level1\map4.tmx" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
