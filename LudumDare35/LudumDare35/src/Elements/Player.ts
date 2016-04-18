@@ -44,7 +44,7 @@
             this.motorSound = game.add.audio('motorSound');
             this.changeSound.volume = Game.global.volume;
             this.deathSound.volume = Game.global.volume;
-            this.motorSound.volume = Game.global.volume - 0.4;
+            this.motorSound.volume = Game.global.volume;
             this.motorSound.loop = true;
             //this.animations.add('walk', [1, 2], 10, true);
             //this.animations.add('walk', [0, 1, 2, 3, 4], 10, true);

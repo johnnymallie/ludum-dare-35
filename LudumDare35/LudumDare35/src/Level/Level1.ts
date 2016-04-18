@@ -42,7 +42,7 @@
             this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
             this.finishSound = this.game.add.audio('selectSound');
-
+            this.finishSound.volume = Game.global.volume;
             /*this.music = this.add.audio('music', 1, false);
             this.music.play();
             */
@@ -95,9 +95,6 @@
         }
 
         update() {
-            
-            console.log('ALIVE');
-            
             this.game.camera.y -= 3;
             this.player.body.position.y -= 3;
             if (this.player.body.position.x <= 0) {
